@@ -10,8 +10,8 @@ const makeImageEl = galleryItems.map(({ preview, original, description }) =>
     <img
       class="gallery__image"
       src=${preview}
-      data-source=${original}
-      alt="${description}""
+      data-source="${original}"
+      alt="${description}"
     />
   </a>
 </div>`
@@ -20,22 +20,17 @@ const makeImageEl = galleryItems.map(({ preview, original, description }) =>
 
 galleryEl.insertAdjacentHTML('beforeend', makeImageEl);
 
-const galleryItemEl = document.querySelector('.gallery__item');
-
 galleryEl.addEventListener('click', showImage);
 
 function showImage(event) {
-  if (!event.target.classList.contains('gallery__link')) {
-    return;
-  }
-  
-    console.log(event.target)
-        basicLightbox.create (`
-		<img width="1400" height="900" src="event.target.dataSet.sourse">
- 	`).show()
+  event.preventDefault();
+    
+  basicLightbox.create(`
+ 		<img width="1280" src="${event.target.dataset.source}">
+ 	
+    `).show();
 
 }
     
 
-console.log(basicLightbox);
 console.log(galleryItems);
