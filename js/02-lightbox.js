@@ -4,16 +4,14 @@ const galleryEl = document.querySelector('.gallery');
 
 const makeImageEl = galleryItems.map(({ preview, original, description }) => 
     
-    ` <a class="gallery__item" href="${original}">
+    `<li> <a class="gallery__item" href="${original}">
   <img class="gallery__image" src="${preview}" alt="${description}" />
-</a>`
+</a> </li>`
    
 ).join('');
 
 galleryEl.insertAdjacentHTML('beforeend', makeImageEl);
 
 let gallery = new SimpleLightbox('.gallery a', {captionsData: "alt", captionDelay: 250});
-gallery.on('show.simplelightbox', function (e) {
-   
-});
+gallery.on('show.simplelightbox');
 
